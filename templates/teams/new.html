@@ -11,6 +11,16 @@
         <input type="text" id="team-name" name="team-name">
         <label for="team-stadium">Home Stadium:</label>        
         <input type="text" id="team-stadium" name="team-stadium">
+
+        <label for="team-name">Team Name:</label>
+        <select name="team_id" id="team-name">
+            {% for team in teams %}
+            <option value="{{ team.id }}">
+                {{ team.name }}
+            </option>
+            {% endfor %}
+        </select>
+
         <input type="submit">
 
     </div>

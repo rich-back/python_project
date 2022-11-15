@@ -14,12 +14,13 @@ def teams():
 
 @teams_blueprint.route("/teams/new")
 def new_team():
-    return render_template("teams/new.html")
+    teams = team_repository.select_all()
+    return render_template("teams/new.html", teams=teams)
 
 @teams_blueprint.route("/teams/<id>/delete", methods=["POST"])
 def delete_team(id):
     team_repository.delete(id)
-    return redirect("/humans")
+    return redirect("/teams")
 
 @teams_blueprint.route("/teams", methods=["POST"])
 def add_team():

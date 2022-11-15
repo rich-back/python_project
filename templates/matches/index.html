@@ -16,9 +16,12 @@
 <section>
     <h3>{{ match.home_team.name }} {{ match.home_score }}</h3>
     <h3>{{ match.away_team.name }} {{match.away_score}}</h3>
+    <h4>at {{ match.home_stadium.stadium }}</h4>
 
-
-
+    <form action="/matches/{{ match.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+<br><hr>
 </section>
 
 {% endfor %}

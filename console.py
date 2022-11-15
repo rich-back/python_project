@@ -23,7 +23,7 @@ team3 = Team("Leinster", "The Aviva Stadium")
 team_repository.save(team3)
 
 
-position1 = Position('Loosedhead Prop', 1)
+position1 = Position('Loosehead Prop', 1)
 position_repository.save(position1 )
 position2= Position('Hooker', 2)
 position_repository.save(position2 )

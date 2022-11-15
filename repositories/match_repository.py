@@ -8,8 +8,9 @@ from models.match import Match
 import repositories.team_repository as team_repository
 
 def save(match):
+  
     sql = "INSERT INTO matches (home_team, away_team, home_stadium, home_score, away_score) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [match.home_team.id, match.away_team.id, match.home_stadium.id, match.home_score, match.away_score]
+    values = [match.home_team, match.away_team, match.home_stadium, match.home_score, match.away_score]
     results = run_sql(sql, values)
     id = results[0]['id']
     match.id = id
@@ -27,3 +28,7 @@ def select_all():
         matches.append(match)
     return matches
 
+def delete(id):
+    sql = "DELETE FROM matches WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
