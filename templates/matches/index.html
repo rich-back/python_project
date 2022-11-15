@@ -3,10 +3,19 @@
 
 <h2>Matches</h2>
 
+<nav>
+    <ul class="new-match">
+       
+        <li><a href="/matches/new">Create Match</a></li>          
+      
+    </ul>
+</nav>
+
 {% for match in matches %}
 
 <section>
-    <h3>{{ home_team.name }}</h3>
+    <h3>{{ match.home_team.name }} {{ match.home_score }}</h3>
+    <h3>{{ match.away_team.name }} {{match.away_score}}</h3>
 
 
 

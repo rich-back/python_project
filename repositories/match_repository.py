@@ -23,6 +23,7 @@ def select_all():
         home_team = team_repository.select(result["home_team"])
         away_team = team_repository.select(result["away_team"])
         home_stadium = team_repository.select(result["home_stadium"])
-        match = Match(home_team.name, away_team.name, home_stadium.stadium, match.home_score, match.away_score, result["id"])
-    matches.append(match)
+        match = Match(home_team, away_team, home_stadium, result["home_score"], result["away_score"], result["id"])
+        matches.append(match)
     return matches
+
