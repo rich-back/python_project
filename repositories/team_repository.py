@@ -25,14 +25,16 @@ def delete_all():
     sql = "DELETE FROM teams"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM teams WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
 def select(id):
     sql = "SELECT * FROM teams WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
 
-    # checking if the list returned by `run_sql(sql, values)` is empty. Empty lists are 'fasly' 
-    # Could alternativly have..
-    # if len(results) > 0 
     if results:
         result = results[0]
         team = Team(result["name"], result["stadium"], result["id"])
@@ -46,6 +48,7 @@ def players_in_team(team):
     results = run_sql(sql, values)
 
     for row in results:
-        player = Player(row['f_name'], row['l_name'], row['age'], row['team_id'], row['position_id'], row['id'])
+        player = Player(row['f_name'], row['l_name'], row['age'], row['position_id'], row['position'], row['id'])
         players.append(player)
     return players
+

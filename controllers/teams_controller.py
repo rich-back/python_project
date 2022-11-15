@@ -16,14 +16,18 @@ def teams():
 def new_team():
     return render_template("teams/new.html")
 
+@teams_blueprint.route("/teams/<id>/delete", methods=["POST"])
+def delete_team(id):
+    team_repository.delete(id)
+    return redirect("/humans")
 
-# @teams_blueprint.route("/teams")
-# def add_team():
-#     team_name = request.form["team-name"]
-#     team_stadium = request.form["team-stadium"]
-#     team_to_add = Team(team_name, team_stadium)
-#     team_repository.save(team_to_add)
-#     return redirect("/teams")
+@teams_blueprint.route("/teams", methods=["POST"])
+def add_team():
+    team_name = request.form["team-name"]
+    team_stadium = request.form["team-stadium"]
+    team_to_add = Team(team_name, team_stadium)
+    team_repository.save(team_to_add)
+    return redirect("/teams")
 
 @teams_blueprint.route("/teams/<id>")
 def show_team(id):

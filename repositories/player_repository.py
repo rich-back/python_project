@@ -3,6 +3,7 @@ import pdb
 from db.run_sql import run_sql
 from models.player import Player
 from models.team import Team
+from repositories import team_repository, position_repository
 
 
 def save(player):
@@ -15,3 +16,16 @@ def save(player):
 def delete_all():
     sql = "DELETE FROM players"
     run_sql(sql)
+
+
+def select_all():
+    players = []
+    sql = "SELECT * FROM players"
+    results = run_sql(sql)
+
+    for result in results:
+        team_id = team_repository.select(result["team_id"])
+        position_id = position_repository.select(result["position_id"])
+        player = Player(player.f_name, player.f_name, player.age, player.team, player.position, result["id"])
+        players.append(player)
+    return players

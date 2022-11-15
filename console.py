@@ -3,9 +3,11 @@ import pdb
 import repositories.player_repository as player_repository
 import repositories.position_repository as position_repository
 import repositories.team_repository as team_repository
+import repositories.match_repository as match_repository
 from models.player import Player
 from models.position import Position
 from models.team import Team
+from models.match import Match
 
 team_repository.delete_all()
 player_repository.delete_all()
@@ -70,7 +72,10 @@ player_repository.save(player5)
 player6 = Player("Kyle", "Steyn", 28, team2, position13)
 player_repository.save(player6)
 
-print(team_repository.players_in_team(team1))
+
+match1 = Match(team1, team2, team1, 27, 21)
+match_repository.save(match1)
+
 
 
 
