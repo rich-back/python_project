@@ -73,8 +73,8 @@ player6 = Player("Kyle", "Steyn", 28, team2, position13)
 player_repository.save(player6)
 
 
-match1 = Match(team1, team2, team1, 27, 21)
-match_repository.save(match1)
+# match1 = Match(team1, team2, team1, 27, 21)
+# match_repository.save(match1)
 
 
 
