@@ -13,3 +13,13 @@ def save(position):
 def delete_all():
     sql = "DELETE FROM positions"
     run_sql(sql)
+
+def select(id):
+    sql = "SELECT * FROM positions WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    if results:
+        result = results[0]
+        position = Position(result["position"], result["shirt_num"], result["id"])
+    return position

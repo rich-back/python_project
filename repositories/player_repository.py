@@ -17,6 +17,10 @@ def delete_all():
     sql = "DELETE FROM players"
     run_sql(sql)
 
+def delete():
+    sql = "DELETE FROM players WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
 
 def select_all():
     players = []
@@ -26,6 +30,13 @@ def select_all():
     for result in results:
         team_id = team_repository.select(result["team_id"])
         position_id = position_repository.select(result["position_id"])
-        player = Player(player.f_name, player.f_name, player.age, player.team, player.position, result["id"])
+        player = Player(result["f_name"], result["l_name"], result["age"], team_id, position_id, result["id"])
         players.append(player)
     return players
+
+def select(id):
+    sql = "SELECT * FROM players WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+
