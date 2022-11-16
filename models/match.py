@@ -7,3 +7,5 @@ class Match:
         self.home_score = home_score
         self.away_score = away_score
         self.id = id
+
+    

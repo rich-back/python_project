@@ -73,8 +73,23 @@ player6 = Player("Kyle", "Steyn", 28, team2, position13)
 player_repository.save(player6)
 
 
-# match1 = Match(team1, team2, team1, 27, 21)
-# match_repository.save(match1)
+match1 = Match(team1.id, team2.id, team1.id, 27, 21)
+match_repository.save(match1)
+match2 = Match(team2.id, team3.id, team2.id, 12, 12)
+match_repository.save(match2)
+match3 = Match(team1.id, team3.id, team1.id, 34, 45)
+match_repository.save(match3)
+match4 = Match(team3.id, team1.id, team3.id, 12, 23)
+match_repository.save(match4)
+
+matches = [match1, match2, match3, match4]
+
+match_repository.find_winner(matches, team3)
+
+
+# match_repository.select_by_team(team2)
+
+# pdb.set_trace()
 
 
 
@@ -87,4 +102,3 @@ player_repository.save(player6)
 
 
 
-pdb.set_trace()

@@ -34,9 +34,6 @@ def select_all():
         players.append(player)
     return players
 
-def select(id):
-    sql = "SELECT * FROM players WHERE id = %s"
-    values = [id]
-    results = run_sql(sql, values)
+
 
 

@@ -23,8 +23,6 @@ def new_match():
 
 @matches_blueprint.route("/matches", methods=["POST"])
 def add_match():
-
-
     home_team = request.form["home_team"]
     away_team = request.form["away_team"]
     home_stadium = request.form["home_stadium"]
@@ -32,10 +30,11 @@ def add_match():
     away_score = random.randint(0,50)
     match_to_add = Match(home_team, away_team, home_stadium, home_score, away_score)
     match_repository.save(match_to_add)
-
     return redirect("/matches")
 
 @matches_blueprint.route("/matches/<id>/delete", methods=["POST"])
 def delete_match(id):
     match_repository.delete(id)
     return redirect("/matches")
+
+
