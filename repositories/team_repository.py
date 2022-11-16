@@ -52,3 +52,7 @@ def players_in_team(team):
         players.append(player)
     return players
 
+def update(team):
+    sql = "UPDATE teams SET (name, stadium) = (%s, %s) WHERE id = %s"
+    values = [team.name, team.stadium, team.id]
+    run_sql(sql, values)

@@ -35,3 +35,19 @@ def show_team(id):
     team = team_repository.select(id)
     players = team_repository.players_in_team(team)
     return render_template("teams/show.html", team = team, players = players)
+
+# EDIT
+@teams_blueprint.route("/teams/<id>/edit")
+def edit_team(id):
+    team = team_repository.select(id)
+    return render_template('teams/edit.html', team=team)
+
+
+# UPDATE
+@teams_blueprint.route("/teams/<id>", methods=["POST"])
+def update_team(id):
+    name = request.form["name"]
+    stadium = request.form["stadium"]
+    team = Team(name, stadium, id)
+    team_repository.update(team)
+    return redirect("/teams")
