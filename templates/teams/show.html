@@ -1,14 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Team Personnel</h2>
 
 
-<section>Selected team goes here: 
-    <h3>{{ team.name }}</h3>
+
+
+
+
+    <h1>{{ team.name }}</h1>
     <p>{{ team.stadium }}</p>
+<form action="/teams/{{ team.id }}/edit">
+    <input type="submit" value="Edit"></form>
+
+<form action="/teams/{{ team.id }}/delete" method="POST">
+    <input type="submit" value="Delete"></form>
+
+<h2>Team Personnel</h2>    
 
 {% for player in players %}
+
+
 
 <section>
     <p>{{ player.f_name }} {{ player.l_name }} <br>{{ player.position }}</p>

@@ -12,8 +12,8 @@
 {% for match in matches %}
 
 <section>
-    <h3>{{ match.home_team.name }} {{ match.home_score }}</h3>
-    <h3>{{ match.away_team.name }} {{match.away_score}}</h3>
+    <h3>{{ match.home_team.name }}&nbsp;&nbsp;&nbsp;&nbsp;<em>{{ match.home_score }}</em></h3>vs.
+    <h3>{{ match.away_team.name }}&nbsp;&nbsp;&nbsp;&nbsp;<em>{{match.away_score}}</em></h3>
     <h4>at {{ match.home_stadium.stadium }}</h4>
 
     <form action="/matches/{{ match.id }}/delete" method="POST">

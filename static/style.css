@@ -1,5 +1,16 @@
+em {
+  font-size: xx-large;
+}
+
+.players {
+  justify-content: center;
+  margin: auto;
+  text-align: center;}
+
 body {
   color: whitesmoke;
+  font-family: 'Teko', sans-serif;
+  font-size: larger;
 }
 
 body {
@@ -17,9 +28,6 @@ header {
     align-items: center;
 }
 
-header > a {
-}
-
 .menu {
     list-style: none;
     display: flex;
@@ -35,9 +43,11 @@ header > a {
 }
 
 footer {
+    display: flex;
+    justify-content: space-between;
     margin-top: auto;
-    padding: 1rem;
-    background-color: whitesmoke;
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
 }
 
 .gallery-container {
@@ -101,3 +111,29 @@ input[type="submit"] {
     border:1px solid; 
     border-color: #696 #363 #363 #696; 
 } 
+
+.flex-container {
+  border: white 2px solid;
+  background-color: #00041c;
+  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0%;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: auto;
+  align-items: center;
+
+}
+
+.flex-container > div > a {
+  font-family: 'Bungee Outline', cursive;
+  font-size: 40px;
+  display: flex;
+  color: whitesmoke;
+  text-decoration: none;
+  width: 400px;
+  justify-content: center;
+  text-align: center;
+}
