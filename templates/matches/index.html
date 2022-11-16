@@ -4,11 +4,9 @@
 <h2>Matches</h2>
 
 <nav>
-    <ul class="new-match">
-       
-        <li><a href="/matches/new">Create Match</a></li>          
-      
-    </ul>
+    <form action="/matches/new">
+        <input type="submit" value="Create Match">
+    </form>
 </nav>
 
 {% for match in matches %}

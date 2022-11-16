@@ -37,6 +37,7 @@ header > a {
 footer {
     margin-top: auto;
     padding: 1rem;
+    background-color: whitesmoke;
 }
 
 .gallery-container {
@@ -91,3 +92,12 @@ footer {
   .slides::-webkit-scrollbar {
     display: none;
   }
+
+input[type="submit"] { 
+  
+    color:#050; 
+    font: bold 84% 'trebuchet ms',helvetica,sans-serif; 
+    background-color:#fed; 
+    border:1px solid; 
+    border-color: #696 #363 #363 #696; 
+} 
